@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,24 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', f
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+Route::get("/",[ProductController::class,'index']);
+Route::get("detail/{id}",[ProductController::class,'detail']);
+Route::post("add_to_cart",[ProductController::class,'addToCart']);
+Route::get("cartlist",[ProductController::class,'cartlist']);
+Route::get('/cart/delete/{id}', [ProductController::class, 'cartDelete']); 
+
+
+Route::get('checkout', [ProductController::class, 'checkout']); 
+Route::post("checkout-detail",[ProductController::class,'checkoutDetail']);
+
+
+Route::post("payment",[ProductController::class,'payment']);
+Route::get('payment/status', [ProductController::class, 'paymentStatus'])->name('payment-status'); 
+Route::post('user/payment/callback', [ProductController::class, 'callBack'])->name('payment-callback'); 
+
+Route::get('orders', [ProductController::class, 'orderHistory']); 
+
+Route::get('feedback', [ProductController::class, 'feedback']);
+
