@@ -52,12 +52,12 @@
                 </a>
                 </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('manage-about-us') }}">
                 About us
             </a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('manage-about-product') }}">
                 About Product
             </a>
             </li>
