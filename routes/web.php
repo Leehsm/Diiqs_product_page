@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\backend\AdminProductController;
+use App\Http\Controllers\backend\AdminSliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +28,22 @@ Route::group(['prefix'=>'admin', 'middleware'=>['admin:admin']], function(){
 });
 
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
-    return view('dashboard');
+    return view('backend.index');
 })->name('dashboard');
+
+Route::get('/admin/logout',[AdminController::class, 'destroy'])->name('admin.logout');
+
+Route::prefix('product_and_combo')->group(function(){
+    Route::get('/view',[AdminProductController::class, 'view'])->name('manage-product-and-combo');
+    Route::get('/create',[AdminProductController::class, 'create'])->name('create-product-and-combo');
+});
+
+Route::prefix('slider')->group(function(){
+    Route::get('/view',[AdminSliderController::class, 'view'])->name('manage-slider');
+    Route::get('/create',[AdminSliderController::class, 'create'])->name('create-slider');
+});
+
+
 
 //User
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
