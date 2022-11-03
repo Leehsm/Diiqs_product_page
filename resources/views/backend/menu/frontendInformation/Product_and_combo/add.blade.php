@@ -14,7 +14,7 @@
     <label for="price" class="form-label">{{ __('Product Price') }}</label>
     <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon3">RM</span>
-    <input type="text" class="form-control" id="price" aria-describedby="basic-addon3">
+    <input type="text" class="form-control" id="price" name="price" aria-describedby="basic-addon3">
     </div>
 
     <label for="category" class="form-label">{{ __('Product Category') }}</label>
@@ -45,7 +45,6 @@
         <label for="image" class="form-label">{{ __('Product Image') }}</label>
         <input class="form-control" type="file" id="image" name="image">
     </div>
-
     
     <button type="button" class="btn btn-warning">Add New</button>
 </form>
