@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\backend\AdminProductController;
 use App\Http\Controllers\backend\AdminSliderController;
+use App\Http\Controllers\backend\AdminAboutUsController;
+use App\Http\Controllers\backend\AdminAboutProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +43,16 @@ Route::prefix('product_and_combo')->group(function(){
 Route::prefix('slider')->group(function(){
     Route::get('/view',[AdminSliderController::class, 'view'])->name('manage-slider');
     Route::get('/create',[AdminSliderController::class, 'create'])->name('create-slider');
+});
+
+Route::prefix('about_us')->group(function(){
+    Route::get('/view',[AdminAboutUsController::class, 'view'])->name('manage-about-us');
+    Route::get('/create',[AdminAboutUsController::class, 'create'])->name('create-about-us');
+});
+
+Route::prefix('about_Product')->group(function(){
+    Route::get('/view',[AdminAboutProductController::class, 'view'])->name('manage-about-product');
+    Route::get('/create',[AdminAboutProductController::class, 'create'])->name('create-about-product');
 });
 
 
