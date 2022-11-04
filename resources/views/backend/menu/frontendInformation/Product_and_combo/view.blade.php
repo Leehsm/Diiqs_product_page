@@ -35,7 +35,10 @@
                 <td>{{ $products->description }}</td>
                 <td>{{ $products->quantity }}</td>
                 <td><img src="{{ asset($products->gallery) }}" style="width: 70px; height: 40px;"></td>
-                <td></td>
+                <td>
+                    <a href="{{ route('edit-product-and-combo',$products->id) }}" class="btn btn-info btn-sm" title="Edit Data">Edit</a>
+                    <a href="{{ route('delete-product-and-combo',$products->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete">Delete</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
@@ -67,6 +70,10 @@
                 <td>{{ $combos->description }}</td>
                 <td>{{ $combos->quantity }}</td>
                 <td><img src="{{ asset($products->gallery) }}" style="width: 70px; height: 40px;"></td>
+                <td>
+                    <a href="{{ route('edit-product-and-combo',$combos->id) }}" class="btn btn-info btn-sm" title="Edit Data">Edit</a>
+                    <a href="{{ route('delete-product-and-combo',$combos->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete">Delete</a>
+                </td>
             </tr>
             @endforeach
         </tbody>

@@ -5,7 +5,8 @@
     <h1 class="h2">Add Product / Combo</h1>
 </div>
 
-<form action="#">
+<form method="post" action="{{ route('store-product-and-combo') }}" enctype="multipart/form-data">
+    @csrf
     <div class="mb-3">
         <label for="name" class="form-label">{{ __('Product Name') }}</label>
         <input type="text" class="form-control" id="name" name="name">
@@ -19,13 +20,13 @@
 
     <label for="category" class="form-label">{{ __('Product Category') }}</label>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="category" id="normal">
+        <input class="form-check-input" type="radio" name="category" id="normal" value="normal">
         <label class="form-check-label" for="normal">
         Normal
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="category" id="combo" checked>
+        <input class="form-check-input" type="radio" name="category" id="combo" value="combo">
         <label class="form-check-label" for="combo">
         Combo
         </label>
@@ -46,7 +47,7 @@
         <input class="form-control" type="file" id="image" name="image">
     </div>
     
-    <button type="button" class="btn btn-warning">Add New</button>
+    <button type="submit" class="btn btn-warning">Add New</button>
 </form>
 
 @endsection
