@@ -28,7 +28,10 @@
                 <td>{{ $abtus->description_line_2 }}</td>
                 <td>{{ $abtus->description_line_3 }}</td>
                 <td><img src="{{ asset($abtus->image) }}" style="width: 70px; height: 40px;"></td>
-                <td></td>
+                <td>
+                    <a href="{{ route('edit-about-us',$abtus->id) }}" class="btn btn-info btn-sm" title="Edit Data">Edit</a>
+                    <a href="{{ route('delete-about-us',$abtus->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete">Delete</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
