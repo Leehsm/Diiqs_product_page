@@ -32,7 +32,10 @@
                 <td>{{ $abtproduct->volume }}</td>
                 <td>{{ $abtproduct->price }}</td>
                 <td><img src="{{ asset($abtproduct->image) }}" style="width: 70px; height: 40px;"></td>
-                <td></td>
+                <td>
+                    <a href="{{ route('edit-about-product',$abtproduct->id) }}" class="btn btn-info btn-sm" title="Edit Data">Edit</a>
+                    <a href="{{ route('delete-about-product',$abtproduct->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete">Delete</a>
+                </td>
             </tr>
             @endforeach
         </tbody>

@@ -5,7 +5,8 @@
     <h1 class="h2">Add About Product</h1>
 </div>
 
-<form action="#">
+<form method="post" action="{{ route('store-about-product') }}" enctype="multipart/form-data">
+    @csrf
     <div class="mb-3">
         <label for="name" class="form-label">{{ __('Name') }}</label>
         <textarea class="form-control" name="name" id="name" rows="3"></textarea>
@@ -38,7 +39,7 @@
         <input class="form-control" type="file" id="image" name="image">
     </div>
     
-    <button type="button" class="btn btn-warning">Add New</button>
+    <button type="submit" class="btn btn-warning">Add New</button>
 </form>
 
 @endsection
