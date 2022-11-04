@@ -5,7 +5,7 @@
     <h1 class="h2">Slider</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{ route('create-slider') }}">Add New</a></button>
+            <a href="{{ route('create-slider') }}" class="btn btn-outline-dark">Add New</a>
         </div>
     </div>
 </div>
@@ -30,7 +30,10 @@
                 <td>{{ $sliders->description }}</td>
                 <td>{{ $sliders->link }}</td>
                 <td><img src="{{ asset($sliders->image) }}" style="width: 70px; height: 40px;"></td>
-                <td></td>
+                <td>
+                    <a href="{{ route('edit-slider',$sliders->id) }}" class="btn btn-info btn-sm" title="Edit Data">Edit</a>
+                    <a href="{{ route('delete-slider',$sliders->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete">Delete</a>
+                </td>
             </tr>
             @endforeach
         </tbody>

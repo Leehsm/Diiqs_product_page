@@ -5,7 +5,8 @@
     <h1 class="h2">Add Slider</h1>
 </div>
 
-<form action="#">
+<form method="post" action="{{ route('store-slider') }}" enctype="multipart/form-data">
+    @csrf
     <div class="mb-3">
         <label for="name" class="form-label">{{ __('Slider Name') }}</label>
         <input type="text" class="form-control" id="name" name="name">
@@ -27,7 +28,7 @@
     </div>
 
     
-    <button type="button" class="btn btn-warning">Add New</button>
+    <button type="submit" class="btn btn-warning">Add New</button>
 </form>
 
 @endsection
